@@ -1,41 +1,4 @@
-<!DOCTYPE html>
-<html lang="zh-Hant-TW" class="han-init">
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>jQuery onClick vs touchstart</title>
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css?v=c3697019bf" />
-    <link rel="stylesheet" media="all" href="https://cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/han.min.css">
-    <link rel="stylesheet" media="all" href="../assets/css/prism.css?v=c3697019bf">
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
-    <link rel="canonical" href="index.html" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
-    <link rel="amphtml" href="amp/index.html" />
-    
-    <meta property="og:site_name" content="lisez" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="jQuery onClick vs touchstart" />
-    <meta property="og:description" content="目前有朋友反應網站有無反應問題，查了一下，看來是傳統滑鼠的click，和現代觸碰螢幕的touch的頂尖對決⋯⋯ 目前查到幾個解決方案： 在觸發元素中加入onclick&#x3D;&quot;void(0)&quot;，去模擬點擊 改成 $(/*DOM*/).on(&#x27;touchstart&#x27;, function(){/*something else to do*/}); 不過似乎二者間可能會有相衝突問題，還有改起來其實是大工程啊！ 幸好目前網站規模小，有發現這問題⋯⋯" />
-    <meta property="og:url" content="https://lisezdb.com/jquery-onclick-vs-touchstart/" />
-    <meta property="article:published_time" content="2016-09-03T17:42:00.000Z" />
-    <meta property="article:modified_time" content="2017-06-18T17:43:28.000Z" />
-    <meta property="article:tag" content="jQuery" />
-    <meta property="article:tag" content="JavaScript" />
-    
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="jQuery onClick vs touchstart" />
-    <meta name="twitter:description" content="目前有朋友反應網站有無反應問題，查了一下，看來是傳統滑鼠的click，和現代觸碰螢幕的touch的頂尖對決⋯⋯ 目前查到幾個解決方案： 在觸發元素中加入onclick&#x3D;&quot;void(0)&quot;，去模擬點擊 改成 $(/*DOM*/).on(&#x27;touchstart&#x27;, function(){/*something else to do*/}); 不過似乎二者間可能會有相衝突問題，還有改起來其實是大工程啊！ 幸好目前網站規模小，有發現這問題⋯⋯" />
-    <meta name="twitter:url" content="https://lisezdb.com/jquery-onclick-vs-touchstart/" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="lisez" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="jQuery, JavaScript" />
-    
-    <script type="application/ld+json">
-{
+<!DOCTYPE html><html class=han-init lang=zh-Hant-TW><meta charset=utf-8><meta content="IE=edge"http-equiv=X-UA-Compatible><title>jQuery onClick vs touchstart</title><meta content=True name=HandheldFriendly><meta content="width=device-width,initial-scale=1"name=viewport><link href="https://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400"rel=stylesheet><link href="../assets/css/screen.css?v=c3697019bf"rel=stylesheet><link href=https://cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/han.min.css rel=stylesheet media=all><link href="../assets/css/prism.css?v=c3697019bf"rel=stylesheet media=all><link href=../favicon.ico rel="shortcut icon"type=image/x-icon><link href=index.html rel=canonical><meta content=no-referrer-when-downgrade name=referrer><link href=amp/index.html rel=amphtml><meta content=lisez property=og:site_name><meta content=article property=og:type><meta content="jQuery onClick vs touchstart"property=og:title><meta content="目前有朋友反應網站有無反應問題，查了一下，看來是傳統滑鼠的click，和現代觸碰螢幕的touch的頂尖對決⋯⋯ 目前查到幾個解決方案： 在觸發元素中加入onclick=&#34;void(0)&#34;，去模擬點擊 改成 $(/*DOM*/).on('touchstart', function(){/*something else to do*/}); 不過似乎二者間可能會有相衝突問題，還有改起來其實是大工程啊！ 幸好目前網站規模小，有發現這問題⋯⋯"property=og:description><meta content=https://lisezdb.com/jquery-onclick-vs-touchstart/ property=og:url><meta content=2016-09-03T17:42:00.000Z property=article:published_time><meta content=2017-06-18T17:43:28.000Z property=article:modified_time><meta content=jQuery property=article:tag><meta content=JavaScript property=article:tag><meta content=summary name=twitter:card><meta content="jQuery onClick vs touchstart"name=twitter:title><meta content="目前有朋友反應網站有無反應問題，查了一下，看來是傳統滑鼠的click，和現代觸碰螢幕的touch的頂尖對決⋯⋯ 目前查到幾個解決方案： 在觸發元素中加入onclick=&#34;void(0)&#34;，去模擬點擊 改成 $(/*DOM*/).on('touchstart', function(){/*something else to do*/}); 不過似乎二者間可能會有相衝突問題，還有改起來其實是大工程啊！ 幸好目前網站規模小，有發現這問題⋯⋯"name=twitter:description><meta content=https://lisezdb.com/jquery-onclick-vs-touchstart/ name=twitter:url><meta content="Written by"name=twitter:label1><meta content=lisez name=twitter:data1><meta content="Filed under"name=twitter:label2><meta content="jQuery, JavaScript"name=twitter:data2><script type=application/ld+json>{
     "@context": "https://schema.org",
     "@type": "Article",
     "publisher": {
@@ -64,80 +27,7 @@
         "@type": "WebPage",
         "@id": "https://lisezdb.com/"
     }
-}
-    </script>
-    <meta name="generator" content="Ghost 1.0" />
-    <link rel="alternate" type="application/rss+xml" title="lisez" href="https://lisezdb.com/rss/" />
-    <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-80642925-6', 'auto');ga('send', 'pageview');</script>
-</head>
-<body class="post-template tag-jquery tag-javascript nav-closed">
-    <div class="nav">
-    <h3 class="nav-title">Menu</h3>
-    <a href="index.html#" class="nav-close">
-        <span class="hidden">Close</span>
-    </a>
-    <ul>
-            <li class="nav-home"><a href="../index.html">Home</a></li>
-    </ul>
-        <a class="subscribe-button icon-feed" href="../rss/index.html">Subscribe</a>
-</div>
-<span class="nav-cover"></span>
-    <div class="site-wrapper">
-        
-<header class="main-header post-head no-cover">
-    <nav class="main-nav  clearfix">
-        <a class="blog-logo" href="../index.html"><img src="../content/images/2017/06/house-outline.png" alt="lisez" /></a>
-            <a class="menu-button icon-menu" href="index.html#"><span class="word">Menu</span></a>
-    </nav>
-</header>
-<main class="content" role="main">
-    <article class="post tag-jquery tag-javascript">
-        <header class="post-header">
-            <h1 class="post-title">jQuery onClick vs touchstart</h1>
-            <section class="post-meta">
-                <time class="post-date" datetime="2016-09-04">04 September 2016</time>  on <a href="../tag/jquery/index.html">jQuery</a>, <a href="../tag/javascript/index.html">JavaScript</a>
-            </section>
-        </header>
-        <section class="post-content">
-            <div class="kg-card-markdown"><p>目前有朋友反應網站有無反應問題，查了一下，看來是傳統滑鼠的click，和現代觸碰螢幕的touch的頂尖對決⋯⋯</p>
-<p>目前查到幾個解決方案：</p>
-<ol>
-<li>在觸發元素中加入<code>onclick="void(0)"</code>，去模擬點擊</li>
-<li>改成 <code>$(/*DOM*/).on('touchstart', function(){/*something else to do*/});</code></li>
-</ol>
-<p>不過似乎二者間可能會有相衝突問題，還有改起來其實是大工程啊！</p>
-<p>幸好目前網站規模小，有發現這問題⋯⋯</p>
-</div>
-        </section>
-        <footer class="post-footer">
-            <section class="author">
-                <h4><a href="../author/lisez/index.html">lisez</a></h4>
-                    <p>Read <a href="../author/lisez/index.html">more posts</a> by this author.</p>
-                <div class="author-meta">
-                    
-                    
-                </div>
-            </section>
-            <section class="share">
-                <h4>Share this post</h4>
-                <a class="icon-twitter" href="https://twitter.com/intent/tweet?text=jQuery%20onClick%20vs%20touchstart&amp;url=https://lisezdb.com/jquery-onclick-vs-touchstart/"
-                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-                    <span class="hidden">Twitter</span>
-                </a>
-                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://lisezdb.com/jquery-onclick-vs-touchstart/"
-                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-                    <span class="hidden">Facebook</span>
-                </a>
-                <a class="icon-google-plus" href="https://plus.google.com/share?url=https://lisezdb.com/jquery-onclick-vs-touchstart/"
-                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-                    <span class="hidden">Google+</span>
-                </a>
-            </section>
-        </footer>
-        <section class="post-comment">
-	        <div id="disqus_thread"></div>
-	<script data-cfasync="false" type="text/javascript">
-	var disqus_config = function () {
+}</script><meta content="Ghost 1.0"name=generator><link href=https://lisezdb.com/rss/ rel=alternate type=application/rss+xml title=lisez><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-80642925-6', 'auto');ga('send', 'pageview');</script><body class="tag-javascript tag-jquery nav-closed post-template"><div class=nav><h3 class=nav-title>Menu</h3><a href=index.html# class=nav-close><span class=hidden>Close</span></a><ul><li class=nav-home><a href=../index.html>Home</a></ul><a href=../rss/index.html class="icon-feed subscribe-button">Subscribe</a></div><div class=site-wrapper><header class="no-cover main-header post-head"><nav class="clearfix main-nav"><a href=../index.html class=blog-logo><img alt=lisez src=../content/images/2017/06/house-outline.png></a><a href=index.html# class="icon-menu menu-button"><span class=word>Menu</span></a></nav></header><main class=content role=main><article class="post tag-javascript tag-jquery"><header class=post-header><h1 class=post-title>jQuery onClick vs touchstart</h1><section class=post-meta><time class=post-date datetime=2016-09-04>04 September 2016</time> on <a href=../tag/jquery/index.html>jQuery</a>, <a href=../tag/javascript/index.html>JavaScript</a></section></header><section class=post-content><div class=kg-card-markdown><p>目前有朋友反應網站有無反應問題，查了一下，看來是傳統滑鼠的click，和現代觸碰螢幕的touch的頂尖對決⋯⋯<p>目前查到幾個解決方案：<ol><li>在觸發元素中加入<code>onclick="void(0)"</code>，去模擬點擊<li>改成 <code>$(/*DOM*/).on('touchstart', function(){/*something else to do*/});</code></ol><p>不過似乎二者間可能會有相衝突問題，還有改起來其實是大工程啊！<p>幸好目前網站規模小，有發現這問題⋯⋯</div></section><footer class=post-footer><section class=author><h4><a href=../author/lisez/index.html>lisez</a></h4><p>Read <a href=../author/lisez/index.html>more posts</a> by this author.</section><section class=share><h4>Share this post</h4><a href="https://twitter.com/intent/tweet?text=jQuery%20onClick%20vs%20touchstart&url=https://lisezdb.com/jquery-onclick-vs-touchstart/"class=icon-twitter onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><span class=hidden>Twitter</span> </a><a href="https://www.facebook.com/sharer/sharer.php?u=https://lisezdb.com/jquery-onclick-vs-touchstart/"class=icon-facebook onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><span class=hidden>Facebook</span> </a><a href="https://plus.google.com/share?url=https://lisezdb.com/jquery-onclick-vs-touchstart/"class=icon-google-plus onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;"><span class=hidden>Google+</span></a></section></footer><section class=post-comment><script data-cfasync=false>var disqus_config = function () {
 	this.page.url = 'https://lisezdb.com/jquery-onclick-vs-touchstart/';
 	this.page.identifier = 'lisezdb-ghost-5946bb7a66a2bac17db76d74';
 	};
@@ -146,36 +36,4 @@
 	s.src = '//lisezdb.disqus.com/embed.js';
 	s.setAttribute('data-timestamp', +new Date());
 	(d.head || d.body).appendChild(s);
-	})();
-	</script>
-	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        </section>
-    </article>
-</main>
-<aside class="read-next">
-    <a class="read-next-story " style="background-image: url(../content/images/2017/06/goal.jpg)" href="../expert-from-deliberate-practice/index.html">
-        <section class="post">
-            <h2>專家，來自刻意練習</h2>
-            <p>Practice makes perfect. 熟能生巧。 今天在逛書店時，撈到一本方智出版社最近出版的《刻意練習》。作者是著名「一萬小時法則」所引用研究來源的研究者 Anders Ericsson。但並非他提出一萬小時法則，他在書中也有回應「一萬小時法則」中的一些問題。 話說回來，這本書主要解決幾個問題： 練習的目標是什麼？&hellip;</p>
-        </section>
-    </a>
-    <a class="read-next-story prev no-cover" href="../php-with-mysql-oop-note/index.html">
-        <section class="post">
-            <h2>PHP+MySQL OOP 筆記</h2>
-            <p>爬一下PHP+MySQL OOP雖然有人寫教學文，但似乎沒有 mysqli 函數的寫法，所以就手動寫了個。 自己先習慣寫一個登入物件(DBLogin)，在串接到資料庫登入(DBMySQL)，比較方便做安全性檢查。 &lt;? define('DB_MYSQL_HOST', 'YOUR_DB_&hellip;</p>
-        </section>
-    </a>
-</aside>
-        <footer class="site-footer clearfix">
-            <section class="copyright"><a href="../index.html">lisez</a> &copy; 2017</section>
-            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
-        </footer>
-    </div>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-    
-    <script type="text/javascript" src="../assets/js/jquery.fitvids.js?v=c3697019bf"></script>
-    <script type="text/javascript" src="../assets/js/index.js?v=c3697019bf"></script>
-    <script src="../assets/js/prism.js?v=c3697019bf"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/han.min.js"></script>
-</body>
-</html>
+	})();</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></section></article></main><aside class=read-next><a href=../expert-from-deliberate-practice/index.html class=read-next-story style=background-image:url(../content/images/2017/06/goal.jpg)><section class=post><h2>專家，來自刻意練習</h2><p>Practice makes perfect. 熟能生巧。 今天在逛書店時，撈到一本方智出版社最近出版的《刻意練習》。作者是著名「一萬小時法則」所引用研究來源的研究者 Anders Ericsson。但並非他提出一萬小時法則，他在書中也有回應「一萬小時法則」中的一些問題。 話說回來，這本書主要解決幾個問題： 練習的目標是什麼？…</section></a><a href=../php-with-mysql-oop-note/index.html class="no-cover prev read-next-story"><section class=post><h2>PHP+MySQL OOP 筆記</h2><p>爬一下PHP+MySQL OOP雖然有人寫教學文，但似乎沒有 mysqli 函數的寫法，所以就手動寫了個。 自己先習慣寫一個登入物件(DBLogin)，在串接到資料庫登入(DBMySQL)，比較方便做安全性檢查。 &lt;? define('DB_MYSQL_HOST', 'YOUR_DB_…</section></a></aside><footer class="clearfix site-footer"><section class=copyright><a href=../index.html>lisez</a> © 2017</section><section class=poweredby>Proudly published with <a href=https://ghost.org>Ghost</a></section></footer></div><script src=https://code.jquery.com/jquery-1.12.0.min.js></script><script src="../assets/js/jquery.fitvids.js?v=c3697019bf"></script><script src="../assets/js/index.js?v=c3697019bf"></script><script src="../assets/js/prism.js?v=c3697019bf"></script><script src=https://cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/han.min.js></script>
