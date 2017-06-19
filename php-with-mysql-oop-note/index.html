@@ -1,4 +1,42 @@
-<!DOCTYPE html><html class=han-init lang=zh-Hant-TW><meta charset=utf-8><meta content="IE=edge"http-equiv=X-UA-Compatible><title>PHP+MySQL OOP 筆記</title><meta content=True name=HandheldFriendly><meta content="width=device-width,initial-scale=1"name=viewport><link href="https://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400"rel=stylesheet><link href="../assets/css/screen.css?v=62e26af6c7"rel=stylesheet><link href=https://cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/han.min.css rel=stylesheet media=all><link href="../assets/css/prism.css?v=62e26af6c7"rel=stylesheet media=all><link href=../favicon.ico rel="shortcut icon"type=image/x-icon><link href=index.html rel=canonical><meta content=no-referrer-when-downgrade name=referrer><link href=amp/index.html rel=amphtml><meta content=lisez property=og:site_name><meta content=article property=og:type><meta content="PHP+MySQL OOP 筆記"property=og:title><meta content="爬一下PHP+MySQL OOP雖然有人寫教學文，但似乎沒有 mysqli 函數的寫法，所以就手動寫了個。 自己先習慣寫一個登入物件(DBLogin)，在串接到資料庫登入(DBMySQL)，比較方便做安全性檢查。 &amp;lt;? define('DB_MYSQL_HOST', 'YOUR_DB_HOST_HERE'); define('DB_MYSQL_USER', 'YOUR_USERNAME'); define('DB_MYSQL_PW', 'YOUR_PASSWORD'); define('DB_MYSQL_DB', 'YOUR_DB_TABLE'); ?&amp;gt; &amp;lt;?php /*************************** 資料庫登入格式化**************************/ class DBLogin{var $user;var $password;"property=og:description><meta content=https://lisezdb.com/php-with-mysql-oop-note/ property=og:url><meta content=2016-08-30T17:44:00.000Z property=article:published_time><meta content=2017-06-18T18:18:38.000Z property=article:modified_time><meta content=PHP property=article:tag><meta content=MySQL property=article:tag><meta content=OOP property=article:tag><meta content=summary name=twitter:card><meta content="PHP+MySQL OOP 筆記"name=twitter:title><meta content="爬一下PHP+MySQL OOP雖然有人寫教學文，但似乎沒有 mysqli 函數的寫法，所以就手動寫了個。 自己先習慣寫一個登入物件(DBLogin)，在串接到資料庫登入(DBMySQL)，比較方便做安全性檢查。 &amp;lt;? define('DB_MYSQL_HOST', 'YOUR_DB_HOST_HERE'); define('DB_MYSQL_USER', 'YOUR_USERNAME'); define('DB_MYSQL_PW', 'YOUR_PASSWORD'); define('DB_MYSQL_DB', 'YOUR_DB_TABLE'); ?&amp;gt; &amp;lt;?php /*************************** 資料庫登入格式化**************************/ class DBLogin{var $user;var $password;"name=twitter:description><meta content=https://lisezdb.com/php-with-mysql-oop-note/ name=twitter:url><meta content="Written by"name=twitter:label1><meta content=lisez name=twitter:data1><meta content="Filed under"name=twitter:label2><meta content="PHP, MySQL, OOP"name=twitter:data2><script type=application/ld+json>{
+<!DOCTYPE html>
+<html lang="zh-Hant-TW" class="han-init">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>PHP+MySQL OOP 筆記</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css?v=62e26af6c7" />
+    <link rel="stylesheet" media="all" href="https://cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/han.min.css">
+    <link rel="stylesheet" media="all" href="../assets/css/prism.css?v=62e26af6c7">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="amp/index.html" />
+    
+    <meta property="og:site_name" content="lisez" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="PHP+MySQL OOP 筆記" />
+    <meta property="og:description" content="爬一下PHP+MySQL OOP雖然有人寫教學文，但似乎沒有 mysqli 函數的寫法，所以就手動寫了個。 自己先習慣寫一個登入物件(DBLogin)，在串接到資料庫登入(DBMySQL)，比較方便做安全性檢查。 &amp;lt;? define(&#x27;DB_MYSQL_HOST&#x27;, &#x27;YOUR_DB_HOST_HERE&#x27;); define(&#x27;DB_MYSQL_USER&#x27;, &#x27;YOUR_USERNAME&#x27;); define(&#x27;DB_MYSQL_PW&#x27;, &#x27;YOUR_PASSWORD&#x27;); define(&#x27;DB_MYSQL_DB&#x27;, &#x27;YOUR_DB_TABLE&#x27;); ?&amp;gt; &amp;lt;?php /**************************  * 資料庫登入格式化  **************************/ class DBLogin{   var $user;   var $password;" />
+    <meta property="og:url" content="https://lisezdb.com/php-with-mysql-oop-note/" />
+    <meta property="article:published_time" content="2016-08-30T17:44:00.000Z" />
+    <meta property="article:modified_time" content="2017-06-18T18:18:38.000Z" />
+    <meta property="article:tag" content="PHP" />
+    <meta property="article:tag" content="MySQL" />
+    <meta property="article:tag" content="OOP" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="PHP+MySQL OOP 筆記" />
+    <meta name="twitter:description" content="爬一下PHP+MySQL OOP雖然有人寫教學文，但似乎沒有 mysqli 函數的寫法，所以就手動寫了個。 自己先習慣寫一個登入物件(DBLogin)，在串接到資料庫登入(DBMySQL)，比較方便做安全性檢查。 &amp;lt;? define(&#x27;DB_MYSQL_HOST&#x27;, &#x27;YOUR_DB_HOST_HERE&#x27;); define(&#x27;DB_MYSQL_USER&#x27;, &#x27;YOUR_USERNAME&#x27;); define(&#x27;DB_MYSQL_PW&#x27;, &#x27;YOUR_PASSWORD&#x27;); define(&#x27;DB_MYSQL_DB&#x27;, &#x27;YOUR_DB_TABLE&#x27;); ?&amp;gt; &amp;lt;?php /**************************  * 資料庫登入格式化  **************************/ class DBLogin{   var $user;   var $password;" />
+    <meta name="twitter:url" content="https://lisezdb.com/php-with-mysql-oop-note/" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="lisez" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="PHP, MySQL, OOP" />
+    
+    <script type="application/ld+json">
+{
     "@context": "https://schema.org",
     "@type": "Article",
     "publisher": {
@@ -27,13 +65,51 @@
         "@type": "WebPage",
         "@id": "https://lisezdb.com/"
     }
-}</script><meta content="Ghost 1.0"name=generator><link href=https://lisezdb.com/rss/ rel=alternate type=application/rss+xml title=lisez><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-80642925-6', 'auto');ga('send', 'pageview');</script><body class="tag-mysql tag-oop tag-php nav-closed post-template"><div class=nav><h3 class=nav-title>Menu</h3><a href=index.html# class=nav-close><span class=hidden>Close</span></a><ul><li class=nav-home><a href=../index.html>Home</a></ul><a href=../rss/index.html class="icon-feed subscribe-button">Subscribe</a></div><div class=site-wrapper><header class="no-cover main-header post-head"><nav class="clearfix main-nav"><a href=../index.html class=blog-logo><img alt=lisez src=../content/images/2017/06/house-outline.png></a><a href=index.html# class="icon-menu menu-button"><span class=word>Menu</span></a></nav></header><main class=content role=main><article class="post tag-mysql tag-oop tag-php"><header class=post-header><h1 class=post-title>PHP+MySQL OOP 筆記</h1><section class=post-meta><time class=post-date datetime=2016-08-31>31 August 2016</time> on <a href=../tag/php/index.html>PHP</a>, <a href=../tag/mysql/index.html>MySQL</a>, <a href=../tag/oop/index.html>OOP</a></section></header><section class=post-content><div class=kg-card-markdown><p>爬一下PHP+MySQL OOP雖然有人寫教學文，但似乎沒有 mysqli 函數的寫法，所以就手動寫了個。<p>自己先習慣寫一個登入物件(DBLogin)，在串接到資料庫登入(DBMySQL)，比較方便做安全性檢查。<pre><code class=language-language-php>&lt;?
+}
+    </script>
+    <meta name="generator" content="Ghost 1.0" />
+    <link rel="alternate" type="application/rss+xml" title="lisez" href="https://lisezdb.com/rss/" />
+    <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-80642925-6', 'auto');ga('send', 'pageview');</script>
+</head>
+<body class="post-template tag-php tag-mysql tag-oop nav-closed">
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="index.html#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+            <li class="nav-home"><a href="../index.html">Home</a></li>
+    </ul>
+        <a class="subscribe-button icon-feed" href="../rss/index.html">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+    <div class="site-wrapper">
+        
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        <a class="blog-logo" href="../index.html"><img src="../content/images/2017/06/house-outline.png" alt="lisez" /></a>
+            <a class="menu-button icon-menu" href="index.html#"><span class="word">Menu</span></a>
+    </nav>
+</header>
+<main class="content" role="main">
+    <article class="post tag-php tag-mysql tag-oop">
+        <header class="post-header">
+            <h1 class="post-title">PHP+MySQL OOP 筆記</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2016-08-31">31 August 2016</time>  on <a href="../tag/php/index.html">PHP</a>, <a href="../tag/mysql/index.html">MySQL</a>, <a href="../tag/oop/index.html">OOP</a>
+            </section>
+        </header>
+        <section class="post-content">
+            <div class="kg-card-markdown"><p>爬一下PHP+MySQL OOP雖然有人寫教學文，但似乎沒有 mysqli 函數的寫法，所以就手動寫了個。</p>
+<p>自己先習慣寫一個登入物件(DBLogin)，在串接到資料庫登入(DBMySQL)，比較方便做安全性檢查。</p>
+<pre><code class="language-language-php">&lt;?
 define('DB_MYSQL_HOST', 'YOUR_DB_HOST_HERE');
 define('DB_MYSQL_USER', 'YOUR_USERNAME');
 define('DB_MYSQL_PW', 'YOUR_PASSWORD');
 define('DB_MYSQL_DB', 'YOUR_DB_TABLE');
-?>
-</code></pre><pre><code class=language-language-php>&lt;?php
+?&gt;
+</code></pre>
+<pre><code class="language-language-php">&lt;?php
 /**************************
  * 資料庫登入格式化
  **************************/
@@ -44,26 +120,26 @@ class DBLogin{
   var $db;
   function __construct($host, $user, $password, $dbname)
   {
-    $this->host     = $host;
-    $this->user     = $user;
-    $this->password = $password;
-    $this->db       = $dbname;
+    $this-&gt;host     = $host;
+    $this-&gt;user     = $user;
+    $this-&gt;password = $password;
+    $this-&gt;db       = $dbname;
   }
   public function the_user()
   {
-    return StringSafe($this->user,0,255); //例如你可以寫個函數檢查
+    return StringSafe($this-&gt;user,0,255); //例如你可以寫個函數檢查
   }
   public function the_pw()
   {
-    return $this->password;
+    return $this-&gt;password;
   }
   public function the_host()
   {
-    return $this->host;
+    return $this-&gt;host;
   }
   public function the_db()
   {
-    return $this->db;
+    return $this-&gt;db;
   }
 }
 /**************************
@@ -83,44 +159,44 @@ class DBMySQL{
                                   or die(TXT_ERR_DB.' '.mysqli_connect_error());
     //設定UTF-8
     mysqli_set_charset($_mysql_conn, "utf8");
-    $this -> _dbConn = $_mysql_conn;
+    $this -&gt; _dbConn = $_mysql_conn;
     return true;
   }
   //關閉連線
   function __destruct()
   {
-    mysqli_close($this->_dbConn);
+    mysqli_close($this-&gt;_dbConn);
   }
   //單一SQL查詢資料
   public function query($sql){
     //逃逸字元
-    //$_sql = mysqli_real_escape_string($this->_dbConn, $sql);
+    //$_sql = mysqli_real_escape_string($this-&gt;_dbConn, $sql);
     $_sql=$sql;
     //撈資料
-    $qryData = mysqli_query($this->_dbConn, $_sql)
-                or die(TXT_ERR_DB.' '.mysqli_errno($this->_dbConn));
+    $qryData = mysqli_query($this-&gt;_dbConn, $_sql)
+                or die(TXT_ERR_DB.' '.mysqli_errno($this-&gt;_dbConn));
     //儲存資料後回傳
-    $this->_qryRes = $qryData;
+    $this-&gt;_qryRes = $qryData;
     return $qryData;
   }
   //複數SQL查詢
   public function queryMulti($sql)
   {
     //逃逸字元
-    //$_sql = mysqli_real_escape_string($this->_dbConn, $sql);
+    //$_sql = mysqli_real_escape_string($this-&gt;_dbConn, $sql);
     $_sql=$sql;
     //撈資料
-    if(mysqli_multi_query($this->_dbConn, $_sql)){
+    if(mysqli_multi_query($this-&gt;_dbConn, $_sql)){
       do {
-        if($_result = mysqli_store_result($this->_dbConn)){
+        if($_result = mysqli_store_result($this-&gt;_dbConn)){
           while ($_row = mysqli_fetch_all($_result, MYSQLI_ASSOC)) {
-            $this->_qryRes[] = $_row;
+            $this-&gt;_qryRes[] = $_row;
           }
           mysqli_free_result($_result);
         }
-      } while (mysqli_next_result($this->_dbConn));
+      } while (mysqli_next_result($this-&gt;_dbConn));
     }
-    return $this->_qryRes;
+    return $this-&gt;_qryRes;
   }
   //回傳查詢值（全部）
   public function getAllData($type=null)
@@ -128,16 +204,16 @@ class DBMySQL{
     $_term  = $type;
     switch ($_term) {
       case 'MYSQLI_NUM':
-        return mysqli_fetch_all($this->_qryRes, MYSQLI_NUM);
+        return mysqli_fetch_all($this-&gt;_qryRes, MYSQLI_NUM);
         break;
       case 'MYSQLI_ASSOC':
-        return mysqli_fetch_all($this->_qryRes, MYSQLI_ASSOC);
+        return mysqli_fetch_all($this-&gt;_qryRes, MYSQLI_ASSOC);
         break;
       case 'MYSQLI_BOTH':
-        return mysqli_fetch_all($this->_qryRes, MYSQLI_BOTH);
+        return mysqli_fetch_all($this-&gt;_qryRes, MYSQLI_BOTH);
         break;
       default:
-        return mysqli_fetch_all($this->_qryRes, MYSQLI_ASSOC);
+        return mysqli_fetch_all($this-&gt;_qryRes, MYSQLI_ASSOC);
         break;
     }
   }
@@ -147,27 +223,29 @@ class DBMySQL{
     $_term  = $type;
     switch ($_term) {
       case 'MYSQLI_NUM':
-        return mysqli_fetch_array($this->_qryRes, MYSQLI_NUM);
+        return mysqli_fetch_array($this-&gt;_qryRes, MYSQLI_NUM);
         break;
       case 'MYSQLI_ASSOC':
-        return mysqli_fetch_array($this->_qryRes, MYSQLI_ASSOC);
+        return mysqli_fetch_array($this-&gt;_qryRes, MYSQLI_ASSOC);
         break;
       case 'MYSQLI_BOTH':
-        return mysqli_fetch_array($this->_qryRes, MYSQLI_BOTH);
+        return mysqli_fetch_array($this-&gt;_qryRes, MYSQLI_BOTH);
         break;
       default:
-        return mysqli_fetch_array($this->_qryRes, MYSQLI_NUM);
+        return mysqli_fetch_array($this-&gt;_qryRes, MYSQLI_NUM);
         break;
     }
   }
   //回傳查詢值總數
   public function getRowsNum()
   {
-    return mysqli_num_rows($this->_qryRes);
+    return mysqli_num_rows($this-&gt;_qryRes);
   }
 }
-?>
-</code></pre><p>接著就可以用下面這樣方式串接：<pre><code class=language-language-php>&lt;?php
+?&gt;
+</code></pre>
+<p>接著就可以用下面這樣方式串接：</p>
+<pre><code class="language-language-php">&lt;?php
 /* ########################################
  * 載入資料庫
 ######################################## */
@@ -180,19 +258,50 @@ $_login = new DBLogin(DB_MYSQL_HOST,
                       DB_MYSQL_PW, 
                       DB_MYSQL_DB);
 //建立連線
-$jsondb = new DBMySQL($_login -> the_host(),
-                      $_login -> the_user(),
-                      $_login -> the_pw(),
-                      $_login -> the_db());
+$jsondb = new DBMySQL($_login -&gt; the_host(),
+                      $_login -&gt; the_user(),
+                      $_login -&gt; the_pw(),
+                      $_login -&gt; the_db());
 //成功連線
 $jsondbSQL = 'SELECT * from table'; //你的SQL
-$jsondb -> query($jsondbSQL);       //呼叫連線
+$jsondb -&gt; query($jsondbSQL);       //呼叫連線
 //輸出資料
-$jsonRows = $jsondb->getAllData();  //全部資料
-$jsonCount = $jsondb->getRowsNum(); //傳回總查詢值
+$jsonRows = $jsondb-&gt;getAllData();  //全部資料
+$jsonCount = $jsondb-&gt;getRowsNum(); //傳回總查詢值
 //執行你的資料處理
-?>
-</code></pre></div></section><footer class=post-footer><section class=author><h4><a href=../author/lisez/index.html>lisez</a></h4><p>Read <a href=../author/lisez/index.html>more posts</a> by this author.</section><section class=share><h4>Share this post</h4><a href="https://twitter.com/intent/tweet?text=PHP%2BMySQL%20OOP%20%E7%AD%86%E8%A8%98&url=https://lisezdb.com/php-with-mysql-oop-note/"class=icon-twitter onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><span class=hidden>Twitter</span> </a><a href="https://www.facebook.com/sharer/sharer.php?u=https://lisezdb.com/php-with-mysql-oop-note/"class=icon-facebook onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><span class=hidden>Facebook</span> </a><a href="https://plus.google.com/share?url=https://lisezdb.com/php-with-mysql-oop-note/"class=icon-google-plus onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;"><span class=hidden>Google+</span></a></section></footer><section class=post-comment><script data-cfasync=false>/**
+?&gt;
+</code></pre>
+</div>
+        </section>
+        <footer class="post-footer">
+            <section class="author">
+                <h4><a href="../author/lisez/index.html">lisez</a></h4>
+                    <p>Read <a href="../author/lisez/index.html">more posts</a> by this author.</p>
+                <div class="author-meta">
+                    
+                    
+                </div>
+            </section>
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/intent/tweet?text=PHP%2BMySQL%20OOP%20%E7%AD%86%E8%A8%98&amp;url=https://lisezdb.com/php-with-mysql-oop-note/"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://lisezdb.com/php-with-mysql-oop-note/"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=https://lisezdb.com/php-with-mysql-oop-note/"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+        </footer>
+        <section class="post-comment">
+	        <div id="disqus_thread"></div>
+	<script data-cfasync="false" type="text/javascript">
+	/**
 	*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
 	*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
 	var disqus_config = function () {
@@ -206,4 +315,36 @@ $jsonCount = $jsondb->getRowsNum(); //傳回總查詢值
 	s.src = '//lisezdb.disqus.com/embed.js';
 	s.setAttribute('data-timestamp', +new Date());
 	(d.head || d.body).appendChild(s);
-	})();</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></section></article></main><aside class=read-next><a href=../jquery-onclick-vs-touchstart/index.html class="no-cover read-next-story"><section class=post><h2>jQuery onClick vs touchstart</h2><p>目前有朋友反應網站有無反應問題，查了一下，看來是傳統滑鼠的click，和現代觸碰螢幕的touch的頂尖對決⋯⋯ 目前查到幾個解決方案： 在觸發元素中加入onclick="void(0)"，去模擬點擊 改成 $(/*DOM*/).on('touchstart', function(){/*something else to do*/}); 不過似乎二者間可能會有相衝突問題，…</section></a><a href=../translate-practice-storycorps-drew-cortez-and-danny-cortez/index.html class="no-cover read-next-story prev"><section class=post><h2>翻譯練習 StoryCorps: Drew Cortez and Danny Cortez</h2><p>URL: https://storycorps.org/listen/drew-and-danny-cortez-160821/ Danny Cortez (DC) and Drew Cortez (DrC) DC: That morning I came to…</section></a></aside><footer class="clearfix site-footer"><section class=copyright><a href=../index.html>lisez</a> © 2017</section><section class=poweredby>Proudly published with <a href=https://ghost.org>Ghost</a></section></footer></div><script src=https://code.jquery.com/jquery-1.12.0.min.js></script><script src="../assets/js/jquery.fitvids.js?v=62e26af6c7"></script><script src="../assets/js/index.js?v=62e26af6c7"></script><script src="../assets/js/prism.js?v=62e26af6c7"></script><script src=https://cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/han.min.js></script>
+	})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </section>
+    </article>
+</main>
+<aside class="read-next">
+    <a class="read-next-story no-cover" href="../jquery-onclick-vs-touchstart/index.html">
+        <section class="post">
+            <h2>jQuery onClick vs touchstart</h2>
+            <p>目前有朋友反應網站有無反應問題，查了一下，看來是傳統滑鼠的click，和現代觸碰螢幕的touch的頂尖對決⋯⋯ 目前查到幾個解決方案： 在觸發元素中加入onclick="void(0)"，去模擬點擊 改成 $(/*DOM*/).on('touchstart', function(){/*something else to do*/}); 不過似乎二者間可能會有相衝突問題，&hellip;</p>
+        </section>
+    </a>
+    <a class="read-next-story prev no-cover" href="../translate-practice-storycorps-drew-cortez-and-danny-cortez/index.html">
+        <section class="post">
+            <h2>翻譯練習 StoryCorps: Drew Cortez and Danny Cortez</h2>
+            <p>URL: https://storycorps.org/listen/drew-and-danny-cortez-160821/ Danny Cortez (DC) and Drew Cortez (DrC) DC: That morning I came to&hellip;</p>
+        </section>
+    </a>
+</aside>
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="../index.html">lisez</a> &copy; 2017</section>
+            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
+        </footer>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    
+    <script type="text/javascript" src="../assets/js/jquery.fitvids.js?v=62e26af6c7"></script>
+    <script type="text/javascript" src="../assets/js/index.js?v=62e26af6c7"></script>
+    <script src="../assets/js/prism.js?v=62e26af6c7"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/han.min.js"></script>
+</body>
+</html>
