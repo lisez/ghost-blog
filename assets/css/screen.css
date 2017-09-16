@@ -1188,6 +1188,10 @@ body.page-template .post-title {
     transform: translateX(-50%);
 }
 
+.post-content a:hover{
+	background-color: #eee;
+}
+
 .footnotes {
     font-style: italic;
     font-size: 1.3rem;
